@@ -34,17 +34,92 @@ public class Lejos {
                 Motor.A.setSpeed(360);
                 Motor.A.backward();
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(350);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Lejos.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 Motor.A.forward();
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(350);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Lejos.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 Motor.A.stop();
+            }
+        });
+        server.createContext("/B", new HttpHandler() {
+
+            @Override
+            public void handle(HttpExchange he) throws IOException {
+                String response = "ok";
+                he.sendResponseHeaders(200, response.length());
+                OutputStream os = he.getResponseBody();
+                os.write(response.getBytes());
+                os.close();
+                Motor.B.setSpeed(360);
+                Motor.B.backward();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Lejos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Motor.B.forward();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Lejos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Motor.B.stop();
+            }
+        });
+        server.createContext("/C", new HttpHandler() {
+
+            @Override
+            public void handle(HttpExchange he) throws IOException {
+                String response = "ok";
+                he.sendResponseHeaders(200, response.length());
+                OutputStream os = he.getResponseBody();
+                os.write(response.getBytes());
+                os.close();
+                Motor.C.setSpeed(360);
+                Motor.C.backward();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Lejos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Motor.C.forward();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Lejos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Motor.C.stop();
+            }
+        });
+        server.createContext("/D", new HttpHandler() {
+
+            @Override
+            public void handle(HttpExchange he) throws IOException {
+                String response = "ok";
+                he.sendResponseHeaders(200, response.length());
+                OutputStream os = he.getResponseBody();
+                os.write(response.getBytes());
+                os.close();
+                Motor.D.setSpeed(360);
+                Motor.D.backward();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Lejos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Motor.D.forward();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Lejos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Motor.D.stop();
             }
         });
         server.setExecutor(null);
